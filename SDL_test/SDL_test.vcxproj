@@ -19,7 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\Game.cpp" />
+    <ClCompile Include="source\ImageRanderer.cpp" />
     <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="source\Vector2.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\Game.h" />
+    <ClInclude Include="source\Object.h" />
+    <ClInclude Include="source\ImageObject.h" />
+    <ClInclude Include="source\ImageRanderer.h" />
+    <ClInclude Include="source\renderer.h" />
+    <ClInclude Include="source\Vector2.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -104,11 +115,8 @@
       <AdditionalDependencies>SDL3.lib;SDL3_image.lib;SDL3_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /d /y "$(SolutionDir)\dependencies\SDL_3.2.22\lib\$(PlatformTarget)\*.dll" "$(TargetDir)"
-xcopy /d /y "$(SolutionDir)\dependencies\SDL_image_3.2.4\lib\$(PlatformTarget)\*.dll" "$(TargetDir)"
-xcopy /d /y "$(SolutionDir)\dependencies\SDL_mixer_2.8.1_compatible\lib\$(PlatformTarget)\*.dll" "$(TargetDir)"
-xcopy /d /y "$(SolutionDir)\dependencies\SDL_ttf-3.2.2\lib\$(PlatformTarget)\*.dll" "$(TargetDir)"
-xcopy /d /y "$(SolutionDir)\resources\*.*" "$(TargetDir)\resources\"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -128,11 +136,8 @@ xcopy /d /y "$(SolutionDir)\resources\*.*" "$(TargetDir)\resources\"</Command>
       <AdditionalDependencies>SDL3.lib;SDL3_image.lib;SDL3_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /d /y "$(SolutionDir)\dependencies\SDL_3.2.22\lib\$(PlatformTarget)\*.dll" "$(TargetDir)"
-xcopy /d /y "$(SolutionDir)\dependencies\SDL_image_3.2.4\lib\$(PlatformTarget)\*.dll" "$(TargetDir)"
-xcopy /d /y "$(SolutionDir)\dependencies\SDL_mixer_2.8.1_compatible\lib\$(PlatformTarget)\*.dll" "$(TargetDir)"
-xcopy /d /y "$(SolutionDir)\dependencies\SDL_ttf-3.2.2\lib\$(PlatformTarget)\*.dll" "$(TargetDir)"
-xcopy /d /y "$(SolutionDir)\resources\*.*" "$(TargetDir)\resources\"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -150,11 +155,8 @@ xcopy /d /y "$(SolutionDir)\resources\*.*" "$(TargetDir)\resources\"</Command>
       <AdditionalDependencies>SDL3.lib;SDL3_image.lib;SDL3_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /d /y "$(SolutionDir)\dependencies\SDL_3.2.22\lib\$(PlatformTarget)\*.dll" "$(TargetDir)"
-xcopy /d /y "$(SolutionDir)\dependencies\SDL_image_3.2.4\lib\$(PlatformTarget)\*.dll" "$(TargetDir)"
-xcopy /d /y "$(SolutionDir)\dependencies\SDL_mixer_2.8.1_compatible\lib\$(PlatformTarget)\*.dll" "$(TargetDir)"
-xcopy /d /y "$(SolutionDir)\dependencies\SDL_ttf-3.2.2\lib\$(PlatformTarget)\*.dll" "$(TargetDir)"
-xcopy /d /y "$(SolutionDir)\resources\*.*" "$(TargetDir)\resources\"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -174,11 +176,8 @@ xcopy /d /y "$(SolutionDir)\resources\*.*" "$(TargetDir)\resources\"</Command>
       <AdditionalDependencies>SDL3.lib;SDL3_image.lib;SDL3_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /d /y "$(SolutionDir)\dependencies\SDL_3.2.22\lib\$(PlatformTarget)\*.dll" "$(TargetDir)"
-xcopy /d /y "$(SolutionDir)\dependencies\SDL_image_3.2.4\lib\$(PlatformTarget)\*.dll" "$(TargetDir)"
-xcopy /d /y "$(SolutionDir)\dependencies\SDL_mixer_2.8.1_compatible\lib\$(PlatformTarget)\*.dll" "$(TargetDir)"
-xcopy /d /y "$(SolutionDir)\dependencies\SDL_ttf-3.2.2\lib\$(PlatformTarget)\*.dll" "$(TargetDir)"
-xcopy /d /y "$(SolutionDir)\resources\*.*" "$(TargetDir)\resources\"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
