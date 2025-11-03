@@ -12,5 +12,12 @@ public:
 	Vector2 const operator*(const float other) const;
 	Vector2 const operator*(const Vector2& other) const;
 	Vector2 const operator/(const float other) const;
+
+	Vector2 const operator!()
+	{
+		Normalize();
+		return *this;
+
+	}
 };
 

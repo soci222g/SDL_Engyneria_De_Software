@@ -2,11 +2,12 @@
 #include"ImageObject.h"
 #include"RenderManager.h"
 #include"TestObject.h"
+#include"InputManager.h"
 void Game::Init()
 {
 	RM->Init();
 	RM->LoadTexture("resource/image.png");
-	_isRunning = true;
+	_isRunning = false;
 	
 	TestObject* test1 = new TestObject();
 	_gameObjects.push_back(test1);
@@ -16,16 +17,18 @@ void Game::Init()
 
 void Game::HandleElement()
 {
-	SDL_Event event; //amb aixo gestionem tots els events. 
-	while (SDL_PollEvent(&event))
-		if (event.type == SDL_EVENT_QUIT) //mira si los tipos de eventos machea, en este caso si has cerado el juego
-			_isRunning = false;
+	_isRunning = IM->Listen();
+	
 }
 
 void Game::Update()
 {
 	for (Object* go : _gameObjects)
 		go->update();
+
+	if (IM->GetEvent(SDLK_S, DOWN)) {
+		SDL_SetRenderDrawColor(_renderer, 255, 255, 255, 0x0FF);
+	}
 }
 
 void Game::Renderer()

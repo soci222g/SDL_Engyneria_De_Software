@@ -32,3 +32,4 @@ Vector2 const Vector2::operator/(const float other) const
 {
 	return Vector2(x / other, y / other);
 }
+

@@ -19,7 +19,7 @@ int main() {
 
 
 	
-	while (game.IsRunning())
+	while (!game.IsRunning())
 	{
 		
 		game.HandleElement();
