@@ -24,7 +24,7 @@ private:
 	SDL_Window* _window;
 	SDL_Renderer* _renderer;
 
-	std::vector<Object*> _gameObjects;
+	std::vector<Object> _gameObjects;
 
 };
 

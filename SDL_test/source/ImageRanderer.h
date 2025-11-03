@@ -1,13 +1,16 @@
 #pragma once
 #include"renderer.h"
+#include"RenderManager.h"
 
 
 class ImageRenderer : public Renderer
 {
 public:
-	void LoadTextura(std::string texturaPath, SDL_Renderer* renderer) override;
-	 void update() override;
-	 void Render(SDL_Renderer* renderer) override;
+	ImageRenderer(Transform* tranform, std::string resourcePath, Vector2 sourceOffset, Vector2 sourceSize);
+
+	
+	virtual void Update(float dt) override;
+	virtual void Render() override;
 
 };
 

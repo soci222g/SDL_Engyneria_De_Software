@@ -8,7 +8,7 @@ class Renderer
 {
 protected:
 
-	Trnsform* _tranform;
+	Transform* _tranform;
 	SDL_Color _color;
 	SDL_FRect _sourceRect;
 	SDL_FRect _destinationRect;
@@ -17,11 +17,11 @@ protected:
 
 public:
 
-	Renderer(Trnsform* transform, std::string path)
+	Renderer(Transform* transform, std::string path)
 		: _tranform(transform), _resourcePath(path) {}
 
 
-	virtual void update() = 0;
+	virtual void Update(float dt) = 0;
 	virtual void Render() = 0;
 	virtual void SetDestinationRect(SDL_FRect rectangle) { _destinationRect = rectangle; };
 

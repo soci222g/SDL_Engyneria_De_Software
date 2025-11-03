@@ -2,21 +2,50 @@
 #include<cassert>
 #include<SDL3_image/SDL_image.h>
 
-void ImageRenderer::LoadTextura(std::string texturaPath, SDL_Renderer* renderer)
+ImageRenderer::ImageRenderer(Transform* tranform, std::string resourcePath, Vector2 sourceOffset, Vector2 sourceSize)
+	: Renderer(tranform, resourcePath)
 {
-	_texture = IMG_LoadTexture(renderer, texturaPath.c_str());
-	assert(_texture);
+	RM->GetTexture(resourcePath);
 
-	_sourceRect = { 0.0f, 0.0f, (float)_texture->w, (float)_texture->h };
+	_sourceRect = SDL_FRect{
+		sourceOffset.x,
+		sourceOffset.y,
+		sourceSize.x,
+		sourceSize.y
+	};
+
+	_destinationRect = SDL_FRect{
+		tranform->position.x,
+		tranform->position.y,
+		tranform->scale.x,
+		tranform->scale.y
+	};
 }
 
-void ImageRenderer::update()
-{
 
-	//update
+
+void ImageRenderer::Update(float dt)
+{
+	Vector2 offset = (Vector2(-_tranform->size.x, -_tranform->size.y) / 2.0f) * _tranform->scale;
+
+	_destinationRect.x = _tranform->position.x + offset.x;
+	_destinationRect.y = _tranform->position.y + offset.y;
+
+	_destinationRect.w = _tranform->scale.x * _tranform->size.x;
+	_destinationRect.h = _tranform->scale.y* _tranform->size.y;
 }
 
-void ImageRenderer::Render(SDL_Renderer* renderer)
+
+
+void ImageRenderer::Render()
 {
-	SDL_RenderTexture(renderer, _texture, &_sourceRect, &_destinationRect);
+	SDL_RenderTextureRotated(
+		RM->GetRenderer(),
+		RM->GetTexture(_resourcePath),
+		&_sourceRect,
+		&_destinationRect,
+		_tranform->rotation,
+		NULL,
+		SDL_FLIP_NONE
+	);
 }

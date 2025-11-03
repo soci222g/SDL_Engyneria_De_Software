@@ -1,17 +1,17 @@
 #include"Game.h"
 #include"ImageObject.h"
+#include"RenderManager.h"
+#include"TestObject.h"
 void Game::Init()
 {
-	IntitSDL();
-	CreateWindiwAndRenderer();
-	SDL_SetRenderDrawColor(
-		_renderer,
-		255, 0, 0, 0xFF
-	);
-
+	RM->Init();
+	RM->LoadTexture("resource/image.png");
 	_isRunning = true;
-
-	_gameObjects.push_back(new ImageObject("resource/image.png", _renderer));
+	
+	TestObject test1 = TestObject();
+	_gameObjects.push_back(test1);
+	TestObject test2 = TestObject();
+	_gameObjects.push_back(test2);
 
 }
 
@@ -25,21 +25,21 @@ void Game::HandleElement()
 
 void Game::Update()
 {
-	for (Object* go : _gameObjects)
-		go->update();
+	for (Object go : _gameObjects)
+		go.update();
 }
 
 void Game::Renderer()
 {
-
-	SDL_RenderClear(_renderer);
+	RM->ClearScreen();
+	
 	//aqui es caregan tots els renderes del joc
 
-	for (Object* go : _gameObjects)
-		go->Render(_renderer);
+	for (Object go : _gameObjects)
+		go.Render();
 
-
-	SDL_RenderPresent(_renderer);
+	RM->RenderSceen();
+	
 }
 
 void Game::releas()

@@ -19,8 +19,8 @@ public:
 	const unsigned int WINDOW_HEIGHT = 768;
 
 
-	void init();
-	void release();
+	void Init();
+	void Release();
 	void ClearScreen();
 	void RenderSceen();
 
@@ -36,7 +36,7 @@ private:
 
 	SDL_Window* _window;
 	SDL_Renderer* _renderer;
-	std::map<std::string, SDL_Texture&> _textures;
+	std::map<std::string, SDL_Texture*> _textures;
 
 	void InitSDL();
 	void CreateWindowAndRenderer();

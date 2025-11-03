@@ -1,23 +1,33 @@
 #pragma once
-#include "Vector2.h"
+#include "transform.h"
 #include"renderer.h"
 #include<SDL3/SDL.h>
 #include<string>
 
 class  Object
 {
+private:
+	bool _isPendingDestroy;
 protected:
-	Vector2 _pos;
-	Renderer* _render;
+	Transform* _transform;
+	Renderer* _render = nullptr;
 
 public:
-	Object() { _pos = Vector2(); _render = nullptr; };
-	void SetPosition(Vector2 position)
-	{
-		_pos = position;
-		_render->SetDestinationRect({ _pos.x,_pos.y,100.0f,100.0f });
+	Object() { 
+		_transform = new Transform(); 
 	}
-	 Vector2 GetPosition() const { return _pos; }
-	 void update() { _render->update(); }
-	 void Render(SDL_Renderer* renderer) { _render->Render(renderer); }
+	~Object() {
+		delete _transform;
+		_transform = nullptr;
+
+		delete _render;
+		_render = nullptr;
+	}
+
+	 Transform* GetTransform() { return _transform; }
+	 virtual void update() { _render->Update(0.02f); } //50 FPS
+	 virtual void Render() { _render->Render(); }
+
+	 bool IsPrivateDestroy() { return _isPendingDestroy; }
+	 virtual void Destroy() { _isPendingDestroy = true; }
 };
