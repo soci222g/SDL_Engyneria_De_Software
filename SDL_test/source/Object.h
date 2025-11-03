@@ -7,13 +7,13 @@
 class  Object
 {
 private:
-	bool _isPendingDestroy;
+	bool _isPendingDestroy = false;
 protected:
 	Transform* _transform;
 	Renderer* _render = nullptr;
 
 public:
-	Object() { 
+	Object() {
 		_transform = new Transform(); 
 	}
 	~Object() {

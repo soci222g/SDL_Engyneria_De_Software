@@ -8,11 +8,10 @@ void Game::Init()
 	RM->LoadTexture("resource/image.png");
 	_isRunning = true;
 	
-	TestObject test1 = TestObject();
+	TestObject* test1 = new TestObject();
 	_gameObjects.push_back(test1);
-	TestObject test2 = TestObject();
+	TestObject* test2 = new TestObject();
 	_gameObjects.push_back(test2);
-
 }
 
 void Game::HandleElement()
@@ -25,8 +24,8 @@ void Game::HandleElement()
 
 void Game::Update()
 {
-	for (Object go : _gameObjects)
-		go.update();
+	for (Object* go : _gameObjects)
+		go->update();
 }
 
 void Game::Renderer()
@@ -35,8 +34,8 @@ void Game::Renderer()
 	
 	//aqui es caregan tots els renderes del joc
 
-	for (Object go : _gameObjects)
-		go.Render();
+	for (Object* go : _gameObjects)
+		go->Render();
 
 	RM->RenderSceen();
 	
