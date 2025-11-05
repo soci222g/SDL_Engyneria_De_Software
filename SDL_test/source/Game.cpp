@@ -24,11 +24,9 @@ void Game::HandleElement()
 void Game::Update()
 {
 	for (Object* go : _gameObjects)
-		go->update();
+		go->Update();
 
-	if (IM->GetEvent(SDLK_S, DOWN)) {
-		SDL_SetRenderDrawColor(_renderer, 255, 255, 255, 0x0FF);
-	}
+
 }
 
 void Game::Renderer()

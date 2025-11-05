@@ -6,7 +6,7 @@ bool InputManager::Listen()
         if (it->second == DOWN) {
             it->second = HOLD;
         }
-        if (it->second == UP) {
+        else if (it->second == UP) {
             it->second = RELISE;
         }
 
@@ -33,6 +33,9 @@ bool InputManager::Listen()
             if (_keyReferences[event.key.key] != HOLD) {
                 _keyReferences[event.key.key] = DOWN;
             }
+        }
+        else if (event.type == SDL_EVENT_KEY_UP) {
+            _keyReferences[event.key.key] = UP;
         }
 
     }
