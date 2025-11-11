@@ -3,6 +3,7 @@
 #include"RenderManager.h"
 #include"TestObject.h"
 #include"InputManager.h"
+
 void Game::Init()
 {
 	RM->Init();
@@ -25,8 +26,6 @@ void Game::Update()
 {
 	for (Object* go : _gameObjects)
 		go->Update();
-
-
 }
 
 void Game::Renderer()

@@ -1,6 +1,7 @@
 #include<SDL3/SDL.h>
 #include <exception>
 #include"Game.h"
+#include"TimeManager.h"
 #include <iostream>
 
 int main() {
@@ -21,10 +22,19 @@ int main() {
 	
 	while (!game.IsRunning())
 	{
+
 		
-		game.HandleElement();
-		game.Update();
-		game.Renderer();
+		TIME->Update();
+		std::cout << TIME->GetDeltaTime() << std::endl;
+		if (TIME->ShouldUpdateGame()){
+
+			game.HandleElement();
+			game.Update();
+			game.Renderer();
+			TIME->RestartDeltaTime();
+		}
+
+	
 		
 	}
 	game.releas();
