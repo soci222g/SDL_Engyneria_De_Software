@@ -26,11 +26,13 @@
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="source\RenderManager.cpp" />
     <ClCompile Include="source\RigidBody.cpp" />
+    <ClCompile Include="source\Scene.cpp" />
     <ClCompile Include="source\Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\AABB.h" />
     <ClInclude Include="source\Game.h" />
+    <ClInclude Include="source\GamePlay.h" />
     <ClInclude Include="source\InputManager.h" />
     <ClInclude Include="source\Object.h" />
     <ClInclude Include="source\ImageObject.h" />
@@ -38,6 +40,8 @@
     <ClInclude Include="source\renderer.h" />
     <ClInclude Include="source\RenderManager.h" />
     <ClInclude Include="source\RigidBody.h" />
+    <ClInclude Include="source\Scene.h" />
+    <ClInclude Include="source\SceneManager.h" />
     <ClInclude Include="source\TestObject.h" />
     <ClInclude Include="source\TimeManager.h" />
     <ClInclude Include="source\transform.h" />

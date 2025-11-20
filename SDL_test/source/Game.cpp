@@ -1,19 +1,22 @@
 #include"Game.h"
-#include"ImageObject.h"
 #include"RenderManager.h"
-#include"TestObject.h"
 #include"InputManager.h"
+#include "SceneManager.h"
+#include"GamePlay.h"
+#include <cassert>
 
 void Game::Init()
 {
 	RM->Init();
 	RM->LoadTexture("resource/image.png");
-	_isRunning = false;
 	
-	TestObject* test1 = new TestObject();
-	_gameObjects.push_back(test1);
-	TestObject* test2 = new TestObject();
-	_gameObjects.push_back(test2);
+	
+	assert(SM->addScene("GamePlay", new GamePlay()));
+	assert(SM->InitScene("GamePlay"));
+	
+	_isRunning = false;
+
+	
 }
 
 void Game::HandleElement()
@@ -24,8 +27,7 @@ void Game::HandleElement()
 
 void Game::Update()
 {
-	for (Object* go : _gameObjects)
-		go->Update();
+	SM->UpdateCurrentScene();
 }
 
 void Game::Renderer()
@@ -34,8 +36,7 @@ void Game::Renderer()
 	
 	//aqui es caregan tots els renderes del joc
 
-	for (Object* go : _gameObjects)
-		go->Render();
+	SM->GetCurrentScene()->Render();
 
 	RM->RenderSceen();
 	
