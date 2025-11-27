@@ -1,5 +1,6 @@
 #pragma once
 #include"Object.h"
+#include"Spawner.h"
 
 class Scene
 {
@@ -13,6 +14,8 @@ public:
 
 	virtual void OnEnter() = 0;
 	virtual void OnExit() {
+
+		SPAWNER.clearSpawn();
 
 		for (Object* o : _Objects)
 			delete o;

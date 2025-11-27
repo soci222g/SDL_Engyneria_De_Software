@@ -18,7 +18,11 @@ void Scene::Update() {
 
 
 
-	//... faltan cosas con el spawner
+	while (SPAWNER.areThereObjectsInSpawner())
+	{
+		_Objects.push_back(SPAWNER.GetObject());
+
+	}
 
 	//updateamos
 	for (Object* o : _Objects)

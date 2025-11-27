@@ -46,6 +46,7 @@
     <ClInclude Include="source\TimeManager.h" />
     <ClInclude Include="source\transform.h" />
     <ClInclude Include="source\Vector2.h" />
+    <ClInclude Include="source\Spawner.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

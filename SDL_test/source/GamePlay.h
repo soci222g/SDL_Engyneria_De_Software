@@ -9,10 +9,11 @@ public:
 	GamePlay() = default;
 
 	void OnEnter() override {
-		TestObject* test1 = new TestObject();
-		_Objects.push_back(test1);
-		TestObject* test2 = new TestObject();
-		_Objects.push_back(test2);
+
+		SPAWNER.addObject(new TestObject());
+		SPAWNER.addObject(new TestObject());
+
+
 	}
 
 	void OnExit() override { Scene::OnExit(); }
