@@ -9,7 +9,7 @@ void Game::Init()
 {
 	RM->Init();
 	RM->LoadTexture("resource/image.png");
-	
+	RM->LoadFont("resource/fonts/hyperspace.ttf");
 	
 	assert(SM->addScene("GamePlay", new GamePlay()));
 	assert(SM->InitScene("GamePlay"));

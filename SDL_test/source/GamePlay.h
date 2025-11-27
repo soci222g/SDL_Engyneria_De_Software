@@ -1,6 +1,7 @@
 #pragma once
 #include"Scene.h"
 #include "TestObject.h"
+#include"TextObject.h"
 
 class GamePlay : public Scene
 {
@@ -13,6 +14,10 @@ public:
 		SPAWNER.addObject(new TestObject());
 		SPAWNER.addObject(new TestObject());
 
+		
+		TextObject* Text1 = new TextObject("HOLi");
+		Text1->GetTransform()->position = Vector2(200, 200);
+		_ui.push_back(Text1);
 
 	}
 

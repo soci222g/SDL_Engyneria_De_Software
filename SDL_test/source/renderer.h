@@ -26,6 +26,6 @@ public:
 	virtual void SetDestinationRect(SDL_FRect rectangle) { _destinationRect = rectangle; };
 
 
-	void SetColot(SDL_Color color) { _color = color; }
+	virtual void SetColor(SDL_Color color) { _color = color; }
 	SDL_Color GetColor() { return _color; }
 };

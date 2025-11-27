@@ -40,6 +40,7 @@ private:
 
 
 	std::queue<Object*> spawnerObjects;
+	std::queue<Object*> spawnerUIObjects;
 
 };
 

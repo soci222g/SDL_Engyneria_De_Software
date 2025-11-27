@@ -15,6 +15,7 @@ public:
 		return &instance;
 	}
 
+	std::map<std::string, TTF_Font*> _fonts;
 	const unsigned int WINDOW_WIDTH = 1360;
 	const unsigned int WINDOW_HEIGHT = 768;
 
@@ -27,6 +28,20 @@ public:
 	SDL_Renderer* GetRenderer() { return _renderer; }
 	void LoadTexture(std::string path);
 	SDL_Texture* GetTexture(std::string path);
+	void LoadFont(std::string path) {
+		if (_fonts.find(path) != _fonts.end())
+			return;
+
+		_fonts[path] = TTF_OpenFont(path.c_str(), 24);
+	}
+	TTF_Font* GetFont(std::string path) {
+		if (_fonts.find(path) != _fonts.end())
+			return _fonts[path];
+
+		return nullptr;
+
+	}
+
 
 private:
 	RenderManager() = default;
