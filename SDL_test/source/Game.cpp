@@ -1,8 +1,9 @@
 #include"Game.h"
 #include"RenderManager.h"
 #include"InputManager.h"
-#include "SceneManager.h"
+#include"SceneManager.h"
 #include"GamePlay.h"
+#include"MainMenu.h"
 #include <cassert>
 
 void Game::Init()
@@ -12,7 +13,8 @@ void Game::Init()
 	RM->LoadFont("resource/fonts/hyperspace.ttf");
 	
 	assert(SM->addScene("GamePlay", new GamePlay()));
-	assert(SM->InitScene("GamePlay"));
+	assert(SM->addScene("MainMenu", new MainMenu()));
+	assert(SM->InitScene("MainMenu"));
 	
 	_isRunning = false;
 

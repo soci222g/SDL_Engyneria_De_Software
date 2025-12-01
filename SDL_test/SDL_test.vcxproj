@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\button.cpp" />
     <ClCompile Include="source\AABB.cpp" />
     <ClCompile Include="source\Game.cpp" />
     <ClCompile Include="source\ImageRanderer.cpp" />
@@ -31,10 +32,12 @@
     <ClCompile Include="source\TextRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\button.h" />
     <ClInclude Include="source\AABB.h" />
     <ClInclude Include="source\Game.h" />
     <ClInclude Include="source\GamePlay.h" />
     <ClInclude Include="source\InputManager.h" />
+    <ClInclude Include="source\MainMenu.h" />
     <ClInclude Include="source\Object.h" />
     <ClInclude Include="source\ImageObject.h" />
     <ClInclude Include="source\ImageRanderer.h" />
